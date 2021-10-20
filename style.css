@@ -37,14 +37,14 @@ h5 {
 }
 
 .header {
-  background-image: url(/assets/pickle-rick.png);
+  background: url(/assets/pickle-rick.png);
   color: var(--color-background-main);
   text-align: center;
   padding: 4rem 2rem;
 }
 
 .header h1 {
-  background-color: rgba(255, 255, 255, 0.781);
+  background-color: var(--color-background-header);
   padding: 0 2rem;
   display: inline-block;
 }
@@ -54,13 +54,11 @@ h5 {
   color: var(--color-main-text);
   padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 300px));
-  grid-template-rows: repeat(auto-fit, minmax(200px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
   place-items: center;
-}
-
-.characterCards {
-  background: var(--color-background-card);
-  border-radius: var(--border-radius);
-  padding: 1rem;
+  align-content: center;
+  justify-content: center;
+  align-items: end;
 }

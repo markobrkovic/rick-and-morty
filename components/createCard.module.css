@@ -1,0 +1,28 @@
+.characterCard {
+  background: var(--color-background-card);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 5px black;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  overflow: hidden;
+  height: 12rem;
+}
+
+.characterImage {
+  height: 100%;
+  width: 100%;
+}
+
+.characterInfo {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+}
+
+.circleStatus {
+  background-color: greenyellow;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  margin-right: 5px;
+}
