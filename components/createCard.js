@@ -2,10 +2,11 @@ import { createElement } from "../lib/elements.js";
 import style from "./createCard.module.css";
 
 export default function createCard({
-  name: characterName,
-  location: lastLocation,
+  name,
+  location,
   status,
-  image: imageOfCharacter,
+  race,
+  imageOfCharacter,
 }) {
   const card = createElement(
     "article",
@@ -15,8 +16,9 @@ export default function createCard({
     [
       createElement("img", {
         className: style.characterImage,
-        textContent: characterName,
+        textContent: name,
         src: imageOfCharacter,
+        alt: "",
       }),
       createElement(
         "section",
@@ -26,17 +28,17 @@ export default function createCard({
         [
           createElement("h2", {
             className: style.characterName,
-            textContent: characterName,
+            textContent: name,
           }),
           createElement("div", {
             className: style.circleStatus,
           }),
           createElement("p", {
             className: style.statusText,
-            textContent: status,
+            textContent: `${status} - ${race}`,
           }),
           createElement("p", {
-            textContent: `Last known location: ${lastLocation}`,
+            textContent: `Last known location: ${location}`,
           }),
         ]
       ),

@@ -27,21 +27,24 @@ function renderApp() {
         name: "Morty",
         location: "Earth",
         status: "Ded",
-        image:
+        race: "Human",
+        imageOfCharacter:
           " https://static.tvtropes.org/pmwiki/pub/images/morty_smith_2.png",
       }),
       createCard({
         name: "Rick",
         location: "Uranus",
         status: "Ded",
-        image:
+        race: "Human",
+        imageOfCharacter:
           "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
       }),
       createCard({
-        name: "Piclke Rick",
+        name: "Picklee Rick",
         location: "The Sewers",
-        status: "alive",
-        image:
+        status: "Alive",
+        race: "Pickle",
+        imageOfCharacter:
           "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
       }),
     ]

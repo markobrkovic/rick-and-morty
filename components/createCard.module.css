@@ -1,9 +1,11 @@
 .characterCard {
   background: var(--color-background-card);
   border-radius: var(--border-radius);
+  box-shadow: 0 5px 5px black;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 40% 60%;
   overflow: hidden;
+  height: 12rem;
 }
 
 .characterImage {
