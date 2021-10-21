@@ -1,0 +1,28 @@
+.formBox {
+  position: absolute;
+  bottom: 5px;
+  right: 2rem;
+}
+
+.searchBox {
+  background-color: var(--color-background-card);
+  color: white;
+  margin: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 2px;
+  border: none;
+}
+
+.btn {
+  background-color: #ff5858;
+  padding: 0.4rem 0.9rem;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  transition: 0.2s all;
+}
+
+.btn:hover {
+  background-color: var(--color-background-main);
+  cursor: pointer;
+}
