@@ -3,11 +3,24 @@ import style from "./createCard.module.css";
 
 export default function createCard({
   name,
-  location,
   status,
-  race,
-  imageOfCharacter,
+  species,
+  image,
+  location,
+  episode,
 }) {
+  function checkStatus(charStatus) {
+    if (charStatus === "Alive") {
+      return style.alive;
+    } else {
+      return style.dead;
+    }
+  }
+
+  const firstEpisode = episode[0];
+  const firstEpisodeElement = createElement("p", {
+    textContent: "Loading...",
+  });
   const card = createElement(
     "article",
     {
@@ -17,7 +30,7 @@ export default function createCard({
       createElement("img", {
         className: style.characterImage,
         textContent: name,
-        src: imageOfCharacter,
+        src: image,
         alt: "",
       }),
       createElement(
@@ -31,19 +44,35 @@ export default function createCard({
             textContent: name,
           }),
           createElement("div", {
-            className: style.circleStatus,
+            className: checkStatus(status),
           }),
           createElement("p", {
             className: style.statusText,
-            textContent: `${status} - ${race}`,
+            textContent: `${status} - ${species}`,
+          }),
+          createElement("h3", {
+            textContent: "Location:",
           }),
           createElement("p", {
-            textContent: `Last known location: ${location}`,
+            textContent: location.name,
           }),
+          createElement("h3", {
+            textContent: "Origin:",
+          }),
+          createElement("p", {
+            textContent: origin.name,
+          }),
+          firstEpisodeElement,
         ]
       ),
     ]
   );
 
+  fetch(firstEpisode)
+    .then((response) => response.json())
+    .then((body) => {
+      console.log(body);
+      firstEpisodeElement.textContent = body.name;
+    });
   return card;
 }
