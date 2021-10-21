@@ -2,7 +2,7 @@ import "./style.css";
 import { createElement } from "./lib/elements";
 import createCard from "./components/createCard";
 
-function renderApp() {
+async function renderApp() {
   const appElement = document.querySelector("#app");
 
   const headerElement = createElement(
@@ -17,37 +17,48 @@ function renderApp() {
     ]
   );
 
+  // const characters = [
+  //   {
+  //     name: "Morty",
+  //     location: "Earth",
+  //     status: "Ded",
+  //     species: "Human",
+  //     image: " https://static.tvtropes.org/pmwiki/pub/images/morty_smith_2.png",
+  //   },
+  //   {
+  //     name: "Rick",
+  //     location: "Uranus",
+  //     status: "Ded",
+  //     species: "Human",
+  //     image:
+  //       "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
+  //   },
+  //   {
+  //     name: "Picklee Rick",
+  //     location: "The Sewers",
+  //     status: "Alive",
+  //     species: "Pickle",
+  //     image:
+  //       "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
+  //   },
+  // ];
+
+  const response = await fetch(
+    "https://rickandmortyapi.com/api/character?page=2"
+  );
+  const body = await response.json();
+  console.log(body.results);
+
+  const createCharacterCards = body.results.map(function (character) {
+    return createCard(character);
+  });
+
   const mainElement = createElement(
     "main",
     {
       className: "main",
     },
-    [
-      createCard({
-        name: "Morty",
-        location: "Earth",
-        status: "Ded",
-        race: "Human",
-        imageOfCharacter:
-          " https://static.tvtropes.org/pmwiki/pub/images/morty_smith_2.png",
-      }),
-      createCard({
-        name: "Rick",
-        location: "Uranus",
-        status: "Ded",
-        race: "Human",
-        imageOfCharacter:
-          "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
-      }),
-      createCard({
-        name: "Picklee Rick",
-        location: "The Sewers",
-        status: "Alive",
-        race: "Pickle",
-        imageOfCharacter:
-          "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
-      }),
-    ]
+    [...createCharacterCards]
   );
 
   appElement.append(headerElement, mainElement);
