@@ -37,17 +37,16 @@ h5 {
 }
 
 .header {
-  background: url(/assets/pickle-rick.png) no-repeat top center fixed;
-  background-size: cover;
+  background: url(/assets/pickle-rick.png);
   color: var(--color-background-main);
   text-align: center;
-  font-size: 2rem;
   padding: 4rem 2rem;
 }
 
 .header h1 {
-  text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255),
-    -1px 1px 0 #fff, 1px 1px 0 #fff;
+  background-color: var(--color-background-header);
+  padding: 0 2rem;
+  display: inline-block;
 }
 
 .main {
@@ -55,8 +54,8 @@ h5 {
   color: var(--color-main-text);
   padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(32rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   place-items: center;
   align-content: center;
