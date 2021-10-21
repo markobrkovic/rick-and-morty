@@ -57,7 +57,7 @@ export default function createCard({
             textContent: location.name,
           }),
           createElement("h3", {
-            textContent: "Origin:",
+            textContent: "Origin location:",
           }),
           createElement("p", {
             textContent: origin.name,
