@@ -1,6 +1,7 @@
 import "./style.css";
 import { createElement } from "./lib/elements";
 import createCard from "./components/createCard";
+import fetchData from "./components/fetchData";
 
 async function renderApp() {
   const appElement = document.querySelector("#app");
@@ -17,39 +18,13 @@ async function renderApp() {
     ]
   );
 
-  // const characters = [
-  //   {
-  //     name: "Morty",
-  //     location: "Earth",
-  //     status: "Ded",
-  //     species: "Human",
-  //     image: " https://static.tvtropes.org/pmwiki/pub/images/morty_smith_2.png",
-  //   },
-  //   {
-  //     name: "Rick",
-  //     location: "Uranus",
-  //     status: "Ded",
-  //     species: "Human",
-  //     image:
-  //       "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
-  //   },
-  //   {
-  //     name: "Picklee Rick",
-  //     location: "The Sewers",
-  //     status: "Alive",
-  //     species: "Pickle",
-  //     image:
-  //       "https://pyxis.nymag.com/v1/imgs/bb2/701/c4787eccc4a76307518ae0632fb9196faa-rick-and-morty.rsquare.w700.jpg",
-  //   },
-  // ];
-
-  const response = await fetch(
+  const characters = await fetchData(
     "https://rickandmortyapi.com/api/character?page=2"
   );
-  const body = await response.json();
-  console.log(body.results);
 
-  const createCharacterCards = body.results.map(function (character) {
+  console.log(characters);
+  const createCharacterCards = characters.map(function (character) {
+    console.log(characters.results);
     return createCard(character);
   });
 
