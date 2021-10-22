@@ -36,7 +36,7 @@
 }
 
 .alive {
-  background-color: rgb(90, 250, 41);
+  background-color: palegreen;
   width: 1rem;
   height: 1rem;
   border-radius: 50%;

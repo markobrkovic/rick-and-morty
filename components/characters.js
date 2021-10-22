@@ -1,4 +1,4 @@
-export default async function fetchData(url) {
+export async function fetchData(url) {
   const response = await fetch(url);
   const body = await response.json();
   return body.results;
